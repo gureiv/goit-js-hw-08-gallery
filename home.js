@@ -1,24 +1,25 @@
-import products from "./gallery-items.js";
+import products from './gallery-items.js';
 console.log(products);
 
 console.log(galleryPicture(products));
 function galleryPicture(products) {
     return products.map(({ preview, original, description }) => {
         return
-        `<li class="gallery__item">
+        `<li class="gallery_item">
             <a
-                class="gallery__link"
+                class="gallery_link"
                 href="${original}"
             >
                 <img
-                    class="gallery__image"
+                    class="gallery_image"
                     src="${preview}"
                     data-source="${original}"
-                    alt="${preview}"
+                    alt="${description}"
                 />
             </a>
         </li>` ;
     }).join('');
-}
+};
+console.log(galleryPicture(products));
 const galleryContainer = document.querySelector('.js-gallery');
-galleryContainer.insertAdjacentHTML('beforeend', galleryPicture);
+galleryContainer.insertAdjacentHTML('beforeend', galleryPicture(products));
